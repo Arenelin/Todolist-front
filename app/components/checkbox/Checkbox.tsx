@@ -1,3 +1,4 @@
+"use client"
 import { DividerHorizontalIcon, CheckIcon } from "@radix-ui/react-icons";
 import {Checkbox, CheckboxIndicator, CheckedState} from "@radix-ui/react-checkbox";
 import {useState} from "react";
