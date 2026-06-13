@@ -25,7 +25,7 @@ jobs:
           bun install --frozen-lockfile
           bun run build
           # Упаковываем скомпилированный код в архив
-          tar -czf deploy.tar.gz .next public package.json
+          tar -czf deploy.tar.gz .next package.json
 
       # Настраиваем доступы для подключения по SSH к вашему серверу
       - name: Setup SSH
