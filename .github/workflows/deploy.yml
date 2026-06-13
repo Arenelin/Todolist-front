@@ -43,8 +43,8 @@ jobs:
           
           # 2. Подключаемся по SSH к серверу с 512 МБ RAM
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
-            export BUN_INSTALL=\"\$HOME/.bun\" &&
-            export PATH=\"\$BUN_INSTALL/bin:\$PATH\" &&
+          export BUN_INSTALL=$HOME/.bun &&
+          export PATH=$BUN_INSTALL/bin:$PATH &&
             cd todo-front/todolist-front &&
           
             # Быстро распаковываем готовый билд (это не нагружает процессор и RAM)
