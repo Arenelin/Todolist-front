@@ -1,3 +1,10 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   deploy:
     name: Deploy via SSH
@@ -14,6 +21,7 @@ jobs:
 
       - name: Build project on GitHub
         run: |
+          cd todo-front/todolist-front
           bun install --frozen-lockfile
           bun run build
           # Упаковываем только готовый билд (.next), статику (public) и манифесты
@@ -29,7 +37,7 @@ jobs:
       - name: Transfer build and Restart server
         run: |
           # 1. Отправляем готовый архив на ваш сервер
-          scp -i ~/.ssh/id_ed25519 deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
+          scp -i ~/.ssh/id_ed25519 todo-front/todolist-front/deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
           
           # 2. Подключаемся и обновляем приложение без нагрузки на RAM сервера
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
