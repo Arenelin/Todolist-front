@@ -1,0 +1,67 @@
+@use "../../mixins" as mixin;
+.container {
+  position: relative;
+  @include mixin.flex-center(center, flex-start, var(--button-gap-xs), row);
+}
+.fullWidth {
+  width: 100%;
+}
+.containerError {
+  @include mixin.flex-center(flex-start, flex-start, var(--button-gap-xxs), column);
+}
+.checkboxRoot {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--border-radius-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    &[data-state='checked'] {
+      background-color: var(--violet-300);
+      border: 1px solid var(--violet-700);
+    }
+    &[data-state='unchecked'] {
+      background-color: transparent;
+      border: 1px solid var(--violet-700);
+    }
+
+    &:hover:not([data-state='checked']):not([data-disabled]) {
+      background-color: var(--violet-200);
+    }
+
+    &:active:not([data-disabled]) {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      @include mixin.focusVisible(var(--focus-visible-secondary), var(--violet-200))
+    }
+
+    &.error {
+      background-color: var(--ruby-300);
+      border-color: var(--ruby-500);
+      &:focus-within {
+        @include mixin.focusVisible(var(--ruby-500),
+                var(--ruby-300));
+      }
+    }
+    &[data-disabled] {
+      @include mixin.disabledState( transparent, var(--violet-300));
+    }
+  }
+
+.checkboxIndicator {
+  color: var(--violet-700);
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+.checkboxIndicatorDisabled {
+  color: var(--violet-300)
+}
+
+.errorText {
+  @include mixin.commonPositioning();
+}

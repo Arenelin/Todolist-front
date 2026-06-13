@@ -1,0 +1,342 @@
+:root {
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Light'), local('Poppins-Light'), url('./assets/fonts/Poppinslight.woff2') format('woff2'), url('./assets/fonts/Poppinslight.woff') format('woff'), url('./assets/fonts/Poppinslight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Regular'), local('Poppins-Regular'), url('./assets/fonts/Poppinsregular.woff2') format('woff2'), url('./assets/fonts/Poppinsregular.woff') format('woff'), url('./assets/fonts/Poppinsregular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url('./assets/fonts/Poppinspoppins-boldsemibold.woff2') format('woff2'),url('./assets/fonts/Poppinspoppins-boldsemibold.woff') format('woff'), url('./assets/fonts/Poppinspoppins-boldsemibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Thin'), local('Poppins-Thin'), url('./assets/fonts/Poppinsthin.woff2') format('woff2'), url('./assets/fonts/Poppinsthin.woff') format('woff'), url('./assets/fonts/Poppinsthin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Italic'), local('Poppins-Italic'), url('./assets/fonts/Poppinsitalic.woff2') format('woff2'), url('./assets/fonts/Poppinsitalic.woff') format('woff'), url('./assets/fonts/Poppinsitalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Medium Italic'), local('Poppins-MediumItalic'), url('./assets/fonts/Poppinsmediumitalic.woff2') format('woff2'), url('./assets/fonts/Poppinsmediumitalic.woff') format('woff'), url('./assets/fonts/Poppinsmediumitalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins ExtraLight Italic'), local('Poppins-ExtraLightItalic'), url('./assets/fonts/Poppinsextralightitalic.woff2') format('woff2'), url('./assets/fonts/Poppinsextralightitalic.woff') format('woff'), url('./assets/fonts/Poppinsextralightitalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins ExtraBold Italic'), local('Poppins-ExtraBoldItalic'), url('./assets/fonts/Poppinsextrabolditalic.woff2') format('woff2'), url('./assets/fonts/Poppinsextrabolditalic.woff') format('woff'), url('./assets/fonts/Poppinsextrabolditalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins ExtraBold'), local('Poppins-ExtraBold'), url('./assets/fonts/Poppinsextrabold.woff2') format('woff2'), url('./assets/fonts/Poppinsextrabold.woff') format('woff'), url('./assets/fonts/Poppinsextrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Light Italic'), local('Poppins-LightItalic'), url('./assets/fonts/Poppinslightitalic.woff2') format('woff2'), url('./assets/fonts/Poppinslightitalic.woff') format('woff'), url('./assets/fonts/Poppinslightitalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Black'), local('Poppins-Black'), url('./assets/fonts/Poppinsblack.woff2') format('woff2'), url('./assets/fonts/Poppinsblack.woff') format('woff'), url('./assets/fonts/Poppinsblack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Thin Italic'), local('Poppins-ThinItalic'), url('./assets/fonts/Poppinsthinitalic.woff2') format('woff2'), url('./assets/fonts/Poppinsthinitalic.woff') format('woff'), url('./assets/fonts/Poppinsthinitalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Medium'), local('Poppins-Medium'), url('./assets/fonts/Poppinspoppins-semiboldmedium.woff2') format('woff2'), url('./assets/fonts/Poppinspoppins-semiboldmedium.woff') format('woff'), url('./assets/fonts/Poppinspoppins-semiboldmedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins ExtraLight'), local('Poppins-ExtraLight'), url('./assets/fonts/Poppinsextralight.woff2') format('woff2'), url('./assets/fonts/Poppinsextralight.woff') format('woff'), url('./assets/fonts/Poppinsextralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Bold Italic'), local('Poppins-BoldItalic'), url('./assets/fonts/Poppinsbolditalic.woff2') format('woff2'), url('./assets/fonts/Poppinsbolditalic.woff') format('woff'), url('./assets/fonts/Poppinsbolditalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins SemiBold Italic'), local('Poppins-SemiBoldItalic'), url('./assets/fonts/Poppinssemibolditalic.woff2') format('woff2'), url('./assets/fonts/Poppinssemibolditalic.woff') format('woff'), url('./assets/fonts/Poppinssemibolditalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Bold'), local('Poppins-Bold'), url('./assets/fonts/Poppinsbold.woff2') format('woff2'), url('./assets/fonts/Poppinsbold.woff') format('woff'), url('./assets/fonts/Poppinsbold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Poppins';
+    src: local('Poppins Black Italic'), local('Poppins-BlackItalic'), url('./assets/fonts/Poppinsblackitalic.woff2') format('woff2'), url('./assets/fonts/Poppinsblackitalic.woff') format('woff'), url('./assets/fonts/Poppinsblackitalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+  }
+}
+
+:root {
+  --font-family-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --primary-black: #181D27;
+  --primary-white: #FFFFFF;
+  --primary-white-50: rgba(255, 255, 255, 0.5);
+
+  --focus-visible-primary: #bab8ff;
+  --focus-visible-secondary: #4A42F2;
+  --violet-50: #F4F3FF;
+  --violet-100: #EAECF5;
+  --violet-700: #4A42F2;
+  --violet-600: #1C10F9;
+  --violet-500: #1005D1;
+  --violet-400: #BDB9FD;
+  --violet-300: #F6F5FF;
+  --violet-200: #d6d8ff;
+  --violet-550: #7A5AF8;
+  --violet-750: #5925DC;
+  --violet-800: #717BBC;
+  --violet-850: #928DFC;
+  --violet-900: #716AFB;
+  --ruby-900: #D92D20;
+  --ruby-700: #F04438;
+  --ruby-500: #FDA29B;
+  --ruby-300: #FEE4E2;
+  --ruby-800: #B42318;
+  --ruby-100: #FEF3F2;
+  --ruby-50:  #FFFBFA;
+  --pr-gray-400: #D5D7DA;
+  --pr-gray-200: #F5F5F5;
+  --pr-gray-600: #414651;
+  --pr-gray-500: #535862;
+  --pr-gray-300: #E9EAEB;
+  --pr-gray-700: #717680;
+  --pr-gray-650: #A4A7AE;
+  --pr-gray-100: #F8F9FC;
+  --pr-gray-550:#535862;
+  --pr-gray-700-50: #5358625A;
+  --pr-dark-indigo: #181D27;
+  --primary-box-shadow: #71717130;
+  --bg-content: #FBFBFB;
+
+  --primary-white-50: #D5D9EB;
+  --primary-white-60: #EEEFF2;
+  --primary-white-70: #EFF8FF;
+  --primary-white-80: #F0F0F0;
+  --primary-white-90: #F8F9FC;
+  --primary-white-100: #ECFDF3;
+  --primary-white-110: #D9D7FE;
+  --primary-blue: #1570EF;
+  --primary-blue-10: #3D6CF31A;
+  --primary-blue-20: #3F2EFF;
+  --primary-blue-30: #3D6CF33A;
+  --primary-blue-40: #1C10F9;
+  --primary-blue-50: #3D6CF30D;
+  --primary-blue-60: #0D04A9;
+  --primary-yellow: #FFFF3E;
+  --primary-turquoise: #1BE5EA;
+  --primary-green: #027A48;
+  --primary-green-10: #45CC3E1A;
+  --primary-green-20: #027A48;
+  --secondary-green: #039855;
+  --third-green: #12B76A;
+  --primary-gray-light: #F5F5F5;
+  --primary-olive: #414651;
+  --primary-olive-10: #6463591A;
+  --pr-gradient: linear-gradient(124.22deg, #000000 32.87%, #4A42F2 68.22%);
+
+  --primary-shadow: #2929290F;
+  --secondary-blue: #3A9FF0;
+  --third-blue: #24BEFE;
+  --fourth-blue: #175CD3;
+  --secondary-white: #FAFAFA;
+  --third-white: #F6F5FF;
+  --secondary-purple: #4942F1;
+  --secondary-blue-50: rgba(58, 159, 240, 0.5);
+
+  --secondary-gray: #535862;
+  --secondary-blue-ligth: #026AA2;
+  --secondary-blue-ligth-10: #3EA1CC1A;
+  --secondary-gray-light: #E9EAEB;
+  --secondary-gray-dark: #717680;
+  --secondary-gray-dark-50:  #5358625A;
+  --secondary-red: #CC3E56;
+  --secondary-red-10: #CC3E561A;
+  --secondary-red-20: #D92D20;
+  --secondary-red-light: #B42318;
+  --secondary-red-light-10: #CC533E1A;
+  --secondary-red-dark: #2E1F149E;
+  --secondary-yellow: #CCBB3E;
+  --secondary-yellow-10: #CCBB3E1A;
+  --secondary-yellow-light: #E8F449;
+  --primary-orange: #FFFAEB;
+  --secondary-orange: #B54708;
+
+  --color-active-bg: #ECFDF3;
+  --color-draft-bg: #F0F9FF;
+  --color-rejected-bg: #FEF3F2;
+  --color-submitted-bg: #fcfdec;
+  --color-done-bg: #F5F5F5;
+  --color-pending-payment-bg: #FFFAEB;
+  --color-cancelled-bg: #fdecec;
+
+
+
+  --secondary-blue-hover: rgba(90, 141, 230, 0.15);
+  --font-size-text-xss: 10px;
+  --font-size-text-xs: 12px;
+  --font-size-text-s: 14px;
+  --font-size-text-m: 16px;
+  --font-size-text-l: 18px;
+  --font-size-text-xl: 20px;
+  --font-size-text-xll: 24px;
+  --font-size-text-xxxl: 36px;
+
+
+  --font-size-title-s: 30px;
+  --font-size-title-m: 36px;
+  --font-size-title-l: 48px;
+  --font-size-title-xl: 60px;
+  --font-size-title-xxl: 86px;
+
+  --line-height-xss: 15px;
+  --line-height-xs: 18px;
+  --line-height-s: 21px;
+  --line-height-m: 24px;
+  --line-height-l: 27px;
+  --line-height-xl: 30px;
+  --line-height-xll: 36px;
+  --line-height-xxxl: 39px;
+  --line-height-4xl: 86px;
+
+  --line-height-title-s: 120%;
+  --line-height-title-m: 38px;
+  --line-height-title-l: 52.8px;
+  --line-height-title-xl: 72px;
+
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-semi-bold: 600;
+
+
+  --font-text-xss: normal var(--font-weight-regular) var(--font-size-text-xss) / var(--line-height-xss) var(--font-family-primary);
+  --font-text-xs: normal var(--font-weight-regular) var(--font-size-text-xs) / var(--line-height-xs) var(--font-family-primary);
+  --font-text-s: normal var(--font-weight-regular) var(--font-size-text-s) / var(--line-height-s) var(--font-family-primary);
+  --font-text-m: normal var(--font-weight-regular) var(--font-size-text-m) / var(--line-height-m) var(--font-family-primary);
+  --font-text-l: normal var(--font-weight-regular) var(--font-size-text-l) / var(--line-height-l) var(--font-family-primary);
+  --font-text-xl: normal var(--font-weight-regular) var(--font-size-text-xl) / var(--line-height-xl) var(--font-family-primary);
+  --font-title-l: normal var(--font-weight-regular) var(--font-size-title-l) / var(--line-height-title-l) var(--font-family-primary);
+  --font-title-m: normal var(--font-weight-regular) var(--font-size-title-m) / var(--line-height-title-m) var(--font-family-primary);
+  --font-text-xll: normal var(--font-weight-regular) var(--font-size-text-xll) / var(--line-height-xll) var(--font-family-primary);
+
+  --font-text-medium-xss: normal var(--font-weight-medium) var(--font-size-text-xss) / var(--line-height-xss) var(--font-family-primary);
+  --font-text-medium-s: normal var(--font-weight-medium) var(--font-size-text-s) / var(--line-height-s) var(--font-family-primary);
+  --font-text-medium-l: normal var(--font-weight-medium) var(--font-size-text-l) / var(--line-height-l) var(--font-family-primary);
+  --font-text-medium-xxl: normal var(--font-weight-medium) var(--font-size-text-xll) / var(--line-height-xll) var(--font-family-primary);
+  --font-text-medium-xxxl: normal var(--font-weight-medium) var(--font-size-text-xxxl) / var(--line-height-xxxl) var(--font-family-primary);
+  --font-text-medium-xs: normal var(--font-weight-medium) var(--font-size-text-xs) / var(--line-height-xs) var(--font-family-primary);
+  --font-text-medium-m: normal var(--font-weight-medium) var(--font-size-text-m) / var(--line-height-m) var(--font-family-primary);
+  --font-text-medium-xl: normal var(--font-weight-medium) var(--font-size-text-xl) / var(--line-height-xl) var(--font-family-primary);
+  --font-title-medium-l: normal var(--font-weight-medium) var(--font-size-title-l) / var(--line-height-title-l) var(--font-family-primary);
+  --font-title-medium-xxl: normal var(--font-weight-medium) var(--font-size-title-xxl) / var(--line-height-4xl) var(--font-family-primary);
+
+  --font-text-light-l: normal var(--font-weight-light) var(--font-size-text-l) / var(--line-height-l) var(--font-family-primary);
+  --font-title-light-l: normal var(--font-weight-light) var(--font-size-title-l) / var(--line-height-title-l) var(--font-family-primary);
+  --font-text-light-xs: normal var(--font-weight-light) var(--font-size-text-xs) / var(--line-height-xs) var(--font-family-primary);
+  --font-text-light-xl: normal var(--font-weight-light) var(--font-size-text-xl) / var(--line-height-xl) var(--font-family-primary);
+  --font-title-light-m: normal var(--font-weight-light) var(--font-size-title-m) / var(--line-height-title-m) var(--font-family-primary);
+  --font-text-bold-xxl: normal var(--font-weight-bold) var(--font-size-text-xll) / var(--line-height-xll) var(--font-family-primary);
+  --font-title-bold-m: normal var(--font-weight-bold) var(--font-size-title-m) / var(--line-height-title-m) var(--font-family-primary);
+  --font-title-bold-l: normal var(--font-weight-bold) var(--font-size-title-m) / var(--line-height-title-m) var(--font-family-primary);
+  --font-text-bold-l: normal var(--font-weight-bold) var(--font-size-text-l) / var(--line-height-l) var(--font-family-primary);
+  --font-text-bold-s: normal var(--font-weight-bold) var(--font-size-text-s) / var(--line-height-s) var(--font-family-primary);
+  --font-text-bold-xl: normal var(--font-weight-bold) var(--font-size-text-xl) / var(--line-height-xl) var(--font-family-primary);
+  --font-text-bold-m: normal var(--font-weight-bold) var(--font-size-text-m) / var(--line-height-m) var(--font-family-primary);
+
+  --font-text-semi-text-xl: normal var(--font-weight-semi-bold) var(--font-size-text-xl) / var(--line-height-xl) var(--font-family-primary);
+  --font-text-semi-bold-xs: normal var(--font-weight-semi-bold) var(--font-size-text-xs) / var(--line-height-xs) var(--font-family-primary);
+  --font-text-semi-bold-m: normal var(--font-weight-semi-bold) var(--font-size-text-m) / var(--line-height-m) var(--font-family-primary);
+  --font-title-semi-bold-m: normal var(--font-weight-semi-bold) var(--font-size-title-m) / var(--line-height-title-m) var(--font-family-primary);
+  --font-text-semi-bold-s: normal var(--font-weight-semi-bold) var(--font-size-text-s) / var(--line-height-s) var(--font-family-primary);
+  --font-text-semi-bold-l: normal var(--font-weight-semi-bold) var(--font-size-text-l) / var(--line-height-l) var(--font-family-primary);
+  --font-title-semi-bold-xl: normal var(--font-weight-semi-bold) var(--font-size-title-xl) / var(--line-height-title-xl) var(--font-family-primary);
+  --font-title-semi-bold-s: normal var(--font-weight-semi-bold) var(--font-size-title-s) / var(--line-height-title-s) var(--font-family-primary);
+  --font-title-semi-bold-xll: normal var(--font-weight-semi-bold) var(--font-size-text-xll) / var(--line-height-xll) var(--font-family-primary);
+  --font-title-semi-bold-l: normal var(--font-weight-semi-bold) var(--font-size-title-l) / var(--line-height-title-l) var(--font-family-primary);
+  --font-text-semi-text-xll: normal var(--font-weight-semi-bold) var(--font-size-text-xll) / var(--line-height-xll) var(--font-family-primary);
+
+  --border-radius-primary: 16px;
+  --border-radius-secondary: 12px;
+  --border-radius-tertiary: 6px;
+  --border-radius-large: 24px;
+  --border-radius-quinary: 8px;
+  --border-radius-ultra: 32px;
+
+  --button-gap-s: 16px;
+  --button-gap-xs: 12px;
+  --button-gap-xxs: 6px;
+  --header-height: 96px;
+}
+
+:root {
+  --swiper-pagination-color: var(--pr-gradient);
+  --swiper-pagination-right: 24px;
+  --swiper-pagination-bottom: 24px;
+  --swiper-navigation-size: initial;
+  --swiper-pagination-bullet-size: 16px;
+  --swiper-pagination-bullet-width: 16px;
+  --swiper-pagination-bullet-height: 16px;
+  --swiper-pagination-bullet-inactive-color: var(--primary-turquoise);
+  --swiper-pagination-bullet-inactive-opacity: 0.5;
+}
+
+:root {
+  --z-data-picker: 1003;
+  --z-marckdown-menu: 1003;
+  --z-multi: 100;
+  --z-multi-content: 1003;
+  --z-modal: 1001;
+  --z-modal-overlay: 1000;
+  --z-local-toogle: 25;
+
+  --wcm-z-index: 9999;
+
+}
+
+

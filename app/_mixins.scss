@@ -1,0 +1,266 @@
+@mixin childrenCardImg($z-index: 2) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    z-index: $z-index;
+}
+
+@mixin flex-center($align: center, $justify: center, $gap: 0, $direction: row ) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+    flex-direction: $direction;
+}
+@mixin grid-center($align: center, $justify: center, $gap: 0 ) {
+    display: grid;
+    place-items: $align $justify;
+    gap: $gap;
+}
+@mixin gradient-text($gradient) {
+    position: relative;
+    color: transparent;
+    background: $gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    z-index: 1;
+}
+
+@mixin input-styles($padding: 10px 14px) {
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+    padding: $padding;
+    background-color: var(--primary-white);
+    border: 1px solid var(--pr-gray-400);
+    border-radius: var(--border-radius-primary);
+}
+
+@mixin commonPositioning($marginTop: 0px) {
+    position: relative;
+    width: 100%;
+    text-align: start;
+    margin-top: $marginTop;
+}
+
+@mixin layout-common-styles {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin content-styles {
+    max-width: 1440px;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@mixin layout-default-styles {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+@mixin box-shadow {
+    box-shadow: 0 2px 10px 2px rgba(41, 41, 41, 0.06);
+}
+
+@mixin form-styles($padding: 0, $maxWidth: 349px) {
+    max-width: $maxWidth;
+    width: 100%;
+    padding: $padding;
+    display: grid;
+    gap: 48px;
+    place-items: center;
+    text-align: left;
+}
+
+@mixin form-styles-mobile($padding: 0, $maxWidth: 349px) {
+    max-width: $maxWidth;
+    width: 100%;
+    height: 100%;
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+}
+
+@mixin separator($color: var(--pr-gray-400), $width: 100%) {
+    border-top: 1px solid $color;
+    width: $width;
+}
+
+@mixin formDescription($maxWidth: 362px, $gap: 32px) {
+    @include flex-center(center, space-between, $gap, column);
+    max-width: $maxWidth;
+    width: 100%;
+}
+
+@mixin filter-styles($background, $webkit-backdrop-filter, $backdrop-filter) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: $background;
+    -webkit-backdrop-filter: $webkit-backdrop-filter;
+    backdrop-filter: $backdrop-filter;
+}
+
+@mixin formEdit {
+    width: 100%;
+    height: 100%;
+    @include flex-center(flex-start, space-between, 16px, column);
+
+    & > :last-child {
+        align-self: flex-end;
+        margin-top: auto;
+    }
+}
+
+@mixin focusVisible($border-color: var(--focus-visible-primary),
+ $box-shadow-color: var(--violet-200)) {
+    border: 1px solid $border-color;
+    outline: none;
+    box-shadow:
+            0 0 0 4px $box-shadow-color,
+            0 1px 2px 0 rgba(10, 13, 18, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+@mixin disabledState(
+    $background: var(--violet-200),
+    $border-color: var(--violet-200)) {
+    cursor: not-allowed;
+    background: $background;
+    border-color: $border-color;
+    box-shadow: 0 1px 2px 0 #0A0D120D;
+    transition: box-shadow 0.3s ease;
+}
+
+// Media request mixins MobileFirst
+@mixin small_s_mobile {
+    @media screen and (max-width: 375px) {
+        @content;
+    }
+}
+
+@mixin responsive-font($min-size, $max-size, $font-weight, $line-height) {
+
+}
+
+@mixin responsive-font($min-size, $max-size, $font-weight, $line-height) {
+    font-weight: $font-weight;
+    line-height: $line-height;
+    font-family: var(--font-family-primary), serif;
+    font-size: #{$min-size}px;
+
+    @media (min-width: 375px) and (max-width: 1440px) {
+        font: $font-weight calc(#{$min-size}px + (#{$max-size} - #{$min-size}) * ((100vw - 320px) / (1440 - 320))) / #{$line-height} var(--font-family-primary);
+    }
+
+    @media (min-width: 1440px) {
+        font-size: #{$max-size}px;
+    }
+}
+
+@mixin small_mobile {
+    @media screen and (max-width: 414px) {
+        @content;
+    }
+}
+
+@mixin small_m_mobile {
+    @media screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media screen and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin small_desktop {
+    @media screen and (max-width: 912px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
+@mixin desktop1120 {
+    @media screen and (max-width: 1120px) {
+        @content;
+    }
+}
+@mixin desktop1150 {
+    @media screen and (max-width: 1150px) {
+        @content;
+    }
+}
+@mixin desktop1440 {
+    @media screen and (max-width: 1439px) {
+        @content;
+    }
+}
+
+@mixin desktop1280 {
+    @media screen and (max-width: 1281px) {
+        @content;
+    }
+}
+
+@mixin desktop1024 {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop_lg {
+    @media screen and (max-width: 1221px) {
+        @content;
+    }
+}
+
+@mixin desktop_xl {
+    @media screen and (max-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin desktop_height{
+    @media screen and (max-height: 824px) {
+        @content;
+    }
+}
+
+@mixin desktop_m{
+    @media screen and (max-width: 1350px) {
+        @content;
+    }
+}

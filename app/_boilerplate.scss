@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+  font-size: var(--font-size-text-m);
+  font-family: var(--font-family-primary), serif;
+}
+
+body {
+  background: var(--primary-white);
+  color: var(--primary-black);
+  font-family: var(--font-family-primary), serif;
+  -webkit-overflow-scrolling: touch;
+}
+
+input, button, select, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus, textarea:focus, input:focus {
+    font-size: 16px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html[dir="rtl"] svg {
+  transform: scaleX(-1);
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+w3m-modal {
+  z-index: 9999;
+}
