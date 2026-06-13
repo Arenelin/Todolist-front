@@ -43,7 +43,7 @@ export const Task = ({task, setTasks}: Props) => {
             },
         }).then((response) => {
             // @ts-ignore
-            fetch("http://153.80.193.119:8087/tasks", {
+            fetch("https://my-todo.online/api/tasks", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
