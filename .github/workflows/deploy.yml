@@ -13,20 +13,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      # Устанавливаем Bun в самом GitHub Actions для сборки
+      # Устанавливаем Bun на сервере GitHub для сборки проекта
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
+      # Собираем проект здесь (на гитхабе памяти много, ничего не упадет)
       - name: Build project on GitHub
         run: |
-          cd todo-front/todolist-front
           bun install --frozen-lockfile
           bun run build
-          # Упаковываем только готовый билд (.next), статику (public) и манифесты
+          # Упаковываем скомпилированный код в архив
           tar -czf deploy.tar.gz .next public package.json
 
+      # Настраиваем доступы для подключения по SSH к вашему серверу
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -34,24 +35,25 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
+      # Отправляем готовый архив на ваш сервер и перезапускаем приложение
       - name: Transfer build and Restart server
         run: |
-          # 1. Отправляем готовый архив на ваш сервер
-          scp -i ~/.ssh/id_ed25519 todo-front/todolist-front/deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
+          # 1. Копируем архив на ваш сервер в целевую папку
+          scp -i ~/.ssh/id_ed25519 deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
           
-          # 2. Подключаемся и обновляем приложение без нагрузки на RAM сервера
+          # 2. Подключаемся по SSH к серверу с 512 МБ RAM
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
             export BUN_INSTALL=\"\$HOME/.bun\" &&
             export PATH=\"\$BUN_INSTALL/bin:\$PATH\" &&
             cd todo-front/todolist-front &&
           
-            # Распаковываем готовые файлы (это мгновенно и не ест память)
+            # Быстро распаковываем готовый билд (это не нагружает процессор и RAM)
             tar -xzf deploy.tar.gz &&
             rm deploy.tar.gz &&
           
-            # Ставим только production-зависимости, чтобы сэкономить место и RAM
+            # Устанавливаем только production-зависимости, чтобы сэкономить место
             bun install --production --frozen-lockfile &&
           
-            # Перезапускаем приложение в PM2
+            # Перезапускаем процесс в PM2
             pm2 restart next-app
           "
