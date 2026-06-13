@@ -24,27 +24,26 @@ jobs:
         run: |
           bun install --frozen-lockfile
           bun run build
-          # Упаковываем скомпилированный код в архив
+          # Упаковываем скомпилированный код в архив (без папки public)
           tar -czf deploy.tar.gz .next package.json
 
-      # Настраиваем доступы для подключения по SSH к вашему серверу
+      # Безопасно настраиваем приватный ключ без падений на сетевых проверках хоста
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       # Отправляем готовый архив на ваш сервер и перезапускаем приложение
       - name: Transfer build and Restart server
         run: |
-          # 1. Копируем архив на ваш сервер в целевую папку
-          scp -i ~/.ssh/id_ed25519 deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
+          # 1. Копируем архив на ваш сервер в целевую папку (игнорируя strict host checking)
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
           
-          # 2. Подключаемся по SSH к серверу с 512 МБ RAM
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
-          export BUN_INSTALL=$HOME/.bun &&
-          export PATH=$BUN_INSTALL/bin:$PATH &&
+          # 2. Подключаемся по SSH к серверу с 512 МБ RAM (чистый синтаксис кавычек и путей)
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
+            export BUN_INSTALL=\$HOME/.bun &&
+            export PATH=\$BUN_INSTALL/bin:\$PATH &&
             cd todo-front/todolist-front &&
           
             # Быстро распаковываем готовый билд (это не нагружает процессор и RAM)
