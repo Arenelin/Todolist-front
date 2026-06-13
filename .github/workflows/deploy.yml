@@ -1,10 +1,3 @@
-name: Deploy to Server
-
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   deploy:
     name: Deploy via SSH
@@ -13,6 +6,19 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # Устанавливаем Bun в самом GitHub Actions для сборки
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Build project on GitHub
+        run: |
+          bun install --frozen-lockfile
+          bun run build
+          # Упаковываем только готовый билд (.next), статику (public) и манифесты
+          tar -czf deploy.tar.gz .next public package.json
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
@@ -20,13 +26,24 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy to server
+      - name: Transfer build and Restart server
         run: |
+          # 1. Отправляем готовый архив на ваш сервер
+          scp -i ~/.ssh/id_ed25519 deploy.tar.gz ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/home/runner/work/Todolist-Front/Todolist-Front/todo-front/todolist-front/
+          
+          # 2. Подключаемся и обновляем приложение без нагрузки на RAM сервера
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "
-          export BUN_INSTALL=\$HOME/.bun &&
-          export PATH=\$BUN_INSTALL/bin:\$PATH &&
-          cd todo-front/Todolist-front &&
-          git pull origin main &&
-          bun install --frozen-lockfile &&
-          export NODE_OPTIONS="--max-old-space-size=512" && bun run build &&
-          pm2 restart next-app"
+            export BUN_INSTALL=\"\$HOME/.bun\" &&
+            export PATH=\"\$BUN_INSTALL/bin:\$PATH\" &&
+            cd todo-front/todolist-front &&
+          
+            # Распаковываем готовые файлы (это мгновенно и не ест память)
+            tar -xzf deploy.tar.gz &&
+            rm deploy.tar.gz &&
+          
+            # Ставим только production-зависимости, чтобы сэкономить место и RAM
+            bun install --production --frozen-lockfile &&
+          
+            # Перезапускаем приложение в PM2
+            pm2 restart next-app
+          "
