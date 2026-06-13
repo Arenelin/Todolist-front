@@ -14,7 +14,7 @@ export const Task = ({task, setTasks}: Props) => {
     const onChangeStatus = () => {
 
         isCheckedValue.current = !isCheckedValue.current
-        fetch("http://153.80.193.119:8087/tasks", {
+        fetch("https://my-todo.online/api/tasks", {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -22,7 +22,7 @@ export const Task = ({task, setTasks}: Props) => {
             body: JSON.stringify({ task:{isDone: isCheckedValue.current}, id: task.id })
         }).then((response) => {
             // @ts-ignore
-            response.json().then(res=>fetch("http://153.80.193.119:8087/tasks", {
+            response.json().then(res=>fetch("https://my-todo.online/api/tasks", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export const Task = ({task, setTasks}: Props) => {
         })
     }
     const onDeleteTask = ()=> {
-        fetch(`http://153.80.193.119:8087/tasks/${task.id}`, {
+        fetch(`https://my-todo.online/api/tasks/${task.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

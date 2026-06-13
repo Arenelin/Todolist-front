@@ -7,7 +7,7 @@ export default function Home() {
     const [newTaskName, setNewTaskName] = useState("")
 
     useEffect(() => {
-        fetch("http://153.80.193.119:8087/tasks", {
+        fetch("https://my-todo.online/api/tasks", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ export default function Home() {
 
     const onCreateTask = () => {
         if (newTaskName !== "") {
-            fetch("http://153.80.193.119:8087/tasks", {
+            fetch("https://my-todo.online/api/tasks", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export default function Home() {
                 body: JSON.stringify({taskName: newTaskName})
             }).then((response) => {
                 // @ts-ignore
-                response.json().then(res => fetch("http://153.80.193.119:8087/tasks", {
+                response.json().then(res => fetch("https://my-todo.online/api/tasks", {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
